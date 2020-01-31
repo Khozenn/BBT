@@ -38,8 +38,8 @@ app.get('/dc/:cours', (request, response) => {
  
 })
 
-app.get('/pooc', (request, reponse) => {
-reposnse.send('Bienvenue sur la page pooc')
+app.get('/pooc', (request, response) => {
+response.send('Bienvenue sur la page pooc')
 })
 
 app.listen(port, (err) => {
