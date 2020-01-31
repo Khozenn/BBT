@@ -1,0 +1,39 @@
+const express = require('express')
+const app = express()
+const port = 3030;
+const index = require('./index.js');
+const test = 'salut';
+
+
+
+
+app.get('/', (request, response) => {
+  response.send(test);
+})
+
+app.get('/hello/:name', (request, response) => {
+  response.send('Hello, '+request.params.name+'!');
+})
+
+app.get('/date', (request, response) => {
+  response.send(new Date());
+})
+
+app.get('/dc', (request, response) => {
+  response.send('Vraiment nul à chier')
+})
+
+app.get('/dc/:cours', (request, response) => {
+  
+  response.send('Vraiment nul à chier cette matière : ' + request.params.cours)
+ 
+})
+
+app.listen(port, (err) => {
+  if (err) {
+    return console.log('Erreur du serveur : ', err)
+  }
+
+  console.log('Le serveur écoute sur le port '+port+'\nRendez vous sur http://localhost:'+port);
+})
+
