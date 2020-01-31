@@ -3,7 +3,16 @@ const app = express()
 const port = 3030;
 const index = require('./index.js');
 const test = 'salut';
+const so = require("os");
 
+const mustacheExpress = require('mustache-express');
+
+
+app.engine("mustache',mustacheExpress()));
+app.set('view engine', 'mustache');
+app.set('views', __dirname + '/views');
+
+app.use(express.static('public'));
 
 
 
@@ -27,6 +36,10 @@ app.get('/dc/:cours', (request, response) => {
   
   response.send('Vraiment nul à chier cette matière : ' + request.params.cours)
  
+})
+
+app.get('/pooc', (request, reponse) => {
+reposnse.send('Bienvenue sur la page pooc')
 })
 
 app.listen(port, (err) => {
