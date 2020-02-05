@@ -46,27 +46,9 @@ app.get('/pooc', (request, response) => {
 response.send('Bienvenue sur la page pooc')
 })
 
-app.get('/on', (request, response) => {
-  
-  
-  console.log('Led On');
-  //On indique à la pin GPIO 4 que l'on veut envoyer du courant sur celle-ci
-  led.writeSync(1);
-  
-  //On indique qu'on a fini d'utiliser la pin GPIO 4.
-  led.unexport();
-})
 
-app.get('/off', (request, response) => {
-  
-  
-  console.log('Led On');
-  //On indique à la pin GPIO 4 que l'on veut envoyer du courant sur celle-ci
-  led.writeSync(0);
-  
-  //On indique qu'on a fini d'utiliser la pin GPIO 4.
-  led.unexport();
-})
+
+
 
 
 app.listen(port, (err) => {

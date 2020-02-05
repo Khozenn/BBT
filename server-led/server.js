@@ -5,6 +5,8 @@ const index = require('./index.js');
 const test = 'salut';
 const so = require("os");
 
+
+
 const mustacheExpress = require('mustache-express');
 
 
@@ -14,7 +16,10 @@ app.set('views', __dirname + '/views');
 
 app.use(express.static('public'));
 
-
+led.writeSync(1);
+  
+  //On indique qu'on a fini d'utiliser la pin GPIO 4.
+  led.unexport();
 
 app.get('/', (request, response) => {
   response.send(test);
@@ -50,3 +55,6 @@ app.listen(port, (err) => {
   console.log('Le serveur écoute sur le port '+port+'\nRendez vous sur http://localhost:'+port);
 })
 
+process.on('SIGINT', () => {
+  led.unexport();
+});
