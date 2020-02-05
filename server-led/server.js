@@ -5,7 +5,10 @@ const index = require('./index.js');
 const test = 'salut';
 const so = require("os");
 
+const Gpio = require('onoff').Gpio;
+const sleep = require('sleep');
 
+const led = new Gpio(17, 'out');
 
 const mustacheExpress = require('mustache-express');
 
