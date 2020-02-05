@@ -5,6 +5,10 @@ const index = require('./index.js');
 const test = 'salut';
 const so = require("os");
 
+const Gpio = require('onoff').Gpio;
+const sleep = require('sleep');
+const led = new Gpio(17, 'out');
+
 const mustacheExpress = require('mustache-express');
 
 
@@ -43,17 +47,22 @@ response.send('Bienvenue sur la page pooc')
 })
 
 app.get('/on', (request, response) => {
-  const Gpio = require('onoff').Gpio;
-  const sleep = require('sleep');
-  //Création d'une variable qui va nous permettre d'accéder à un GPIO du raspberry  
-  //⚠️ Le nombre passé en paramètre correspond au numéro de GPIO et non au numéro de la pin.
-  const led = new Gpio(17, 'out');
+  
   
   console.log('Led On');
   //On indique à la pin GPIO 4 que l'on veut envoyer du courant sur celle-ci
   led.writeSync(1);
- 
-  console.log('Led Off');
+  
+  //On indique qu'on a fini d'utiliser la pin GPIO 4.
+  led.unexport();
+})
+
+app.get('/off', (request, response) => {
+  
+  
+  console.log('Led On');
+  //On indique à la pin GPIO 4 que l'on veut envoyer du courant sur celle-ci
+  led.writeSync(0);
   
   //On indique qu'on a fini d'utiliser la pin GPIO 4.
   led.unexport();
