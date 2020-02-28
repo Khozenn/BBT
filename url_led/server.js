@@ -40,6 +40,14 @@ app.get('/off', (request, response) =>{
   led.writeSync(0);
 })
 
+app.get('/altern', (request, response) => {
+  while (i!=0){
+    led.writeSync(1);
+    sleep.sleep(1);
+    led.writeSync(0);
+  }
+})
+
 app.get('/dc', (request, response) => {
   response.send('Vraiment nul à chier')
 })
