@@ -49,8 +49,7 @@ app.get('/off', (request, response) =>{
 
 app.get('/altern', (request, response) => {
   var altern = setInterval(() => altern(), 1000);
-  sleep.sleep(10);
-  clearInterval(altern);
+  
 })
 
 app.get('/dc', (request, response) => {
