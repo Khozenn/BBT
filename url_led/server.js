@@ -48,7 +48,7 @@ app.get('/off', (request, response) =>{
 })
 
 app.get('/altern', (request, response) => {
-  setInterval(() => altern(), 2000);
+  setInterval(() => altern(), 1000);
 })
 
 app.get('/dc', (request, response) => {
