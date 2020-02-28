@@ -19,10 +19,6 @@ app.set('views', __dirname + '/views');
 
 app.use(express.static('public'));
 
-led.writeSync(1);
-  
-  //On indique qu'on a fini d'utiliser la pin GPIO 4.
-  led.unexport();
 
 app.get('/', (request, response) => {
   response.send(test);
@@ -35,6 +31,9 @@ app.get('/hello/:name', (request, response) => {
 app.get('/date', (request, response) => {
   response.send(new Date());
 })
+
+app.get('/on', (request, esponse) => {
+ led.writeSync(1);
 
 app.get('/dc', (request, response) => {
   response.send('Vraiment nul à chier')
