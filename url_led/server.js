@@ -45,6 +45,7 @@ app.get('/altern', (request, response) => {
     led.writeSync(1);
     sleep.sleep(1);
     led.writeSync(0);
+    sleep.sleep(1);
   }
 })
 
