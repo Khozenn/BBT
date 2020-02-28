@@ -4,7 +4,7 @@ const port = 3030;
 const index = require('./index.js');
 const test = 'salut';
 const so = require("os");
-
+const i = 0;
 const Gpio = require('onoff').Gpio;
 const sleep = require('sleep');
 
