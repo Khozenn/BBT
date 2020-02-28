@@ -13,6 +13,13 @@ const led = new Gpio(17, 'out');
 const mustacheExpress = require('mustache-express');
 
 
+function altern(){
+  led.writeSync(1);
+  sleep.sleep(1);
+  led.writeSync(0);
+  sleep.sleep(1);
+}
+
 app.engine('mustache',mustacheExpress());
 app.set('view engine', 'mustache');
 app.set('views', __dirname + '/views');
@@ -41,12 +48,7 @@ app.get('/off', (request, response) =>{
 })
 
 app.get('/altern', (request, response) => {
-  while (i!=0){
-    led.writeSync(1);
-    sleep.sleep(1);
-    led.writeSync(0);
-    sleep.sleep(1);
-  }
+  setInterval(altern(), 2000);
 })
 
 app.get('/dc', (request, response) => {
