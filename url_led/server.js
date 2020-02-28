@@ -36,6 +36,10 @@ app.get('/on', (request, response) => {
  led.writeSync(1);
 })
 
+applicationCache.get('/off', (request, response) =>{
+  led.writeSync(0);
+})
+
 app.get('/dc', (request, response) => {
   response.send('Vraiment nul à chier')
 })
